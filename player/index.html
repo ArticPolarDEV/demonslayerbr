@@ -3,40 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Player</title>
-  <style>
-    /* Estilo do player de vídeo */
-    .custom-video-player {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    /* Estilo do vídeo */
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-    }
-
-    .video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+  <title>Player de Vídeo Personalizado</title>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css">
 </head>
 <body>
   <div class="custom-video-player">
-    <div class="video-container">
-      <video class="video" controls id="videoPlayer">
-        Seu navegador não suporta a reprodução de vídeo.
-      </video>
-    </div>
+    <video class="plyr" controls id="videoPlayer">
+      Seu navegador não suporta a reprodução de vídeo.
+    </video>
   </div>
-
+  <script src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
   <script>
     // Função para obter o valor do parâmetro 'link' da URL
     function getParameterByName(name, url) {
@@ -57,6 +33,9 @@
     if (videoLink) {
       videoPlayer.src = videoLink;
     }
+
+    // Inicializa o player Plyr
+    var player = new Plyr('#videoPlayer');
   </script>
 </body>
 </html>
